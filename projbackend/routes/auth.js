@@ -1,6 +1,6 @@
 var express = require('express');
 const { sign } = require('jsonwebtoken');
-var router = express.Router()
+const router = express.Router();
 const {check} = require('express-validator');
 const {signout , signup, signin ,isSignedIn} = require('../controllers/auth')
 
