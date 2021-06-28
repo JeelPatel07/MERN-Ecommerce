@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const { ObjectId } = mongoose;
 
@@ -6,8 +6,8 @@ const { ObjectId } = mongoose;
 const ProductCartSchema = new Schema({
     product:{
         type:ObjectId,
-        ref:Product,
-        
+        ref:"Product",
+    
     },
     name:String,
     count:Number,
@@ -18,7 +18,9 @@ const ProductCart = mongoose.model("ProductCart",ProductCartSchema);
 
 const orderSchema = new Schema({
       products:[ProductCartSchema],
-      transaction_id = {},
+      transaction_id : {
+
+      },
       amount:{
           type:Number
         },
@@ -26,7 +28,7 @@ const orderSchema = new Schema({
       updated:Date,
       user: {
           type:ObjectId,
-          ref:User,
+          ref:"User",
  }
 },{timestamps:true}
 );
