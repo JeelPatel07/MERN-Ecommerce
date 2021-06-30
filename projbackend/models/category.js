@@ -10,11 +10,6 @@ const categorySchema = new Schema({
         maxlength:32,
         unique:true
     },
-    
-
-
-
-
 },{timestamps:true}
 );
 
