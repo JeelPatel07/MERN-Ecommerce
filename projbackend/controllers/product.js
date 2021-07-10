@@ -27,7 +27,7 @@ exports.createProduct = (req, res) => {
         error: "problem with image",
       });
     }
-    //destructure the fields
+    //destructor the fields
     const { name, description, price, category, stock } = fields;
 
     if (!name || !description || !price || !category || !stock) {
@@ -147,3 +147,35 @@ exports.getAllProducts = (req, res) => {
       res.json(products);
     });
 };
+
+exports.updateStock = (req,res,next)=>{
+  let myOperations = req.body.order.product.map(prod=>{
+    return {
+      updateOne:{
+        filter:{_id:prod._id},
+        update:{$inc : {stock: -prod.count,sold: +prod.count}}
+      }
+    }
+  })
+  Product.bulkWrite(myOperations,{},(err,products)=>{
+    if(err){
+      return res.status(400).json({
+        err:"Bulk Operation failed"
+      })
+    }
+    next();
+  })
+}
+
+exports.getAllUniqueCategories = (req,res)=>{
+  Product.distinct("category",{},(err,category)=>{
+    if(err){
+      return res.status(400).json({
+        err:"No Category found"
+      })
+    }
+    res.json(category)
+  })
+}
+
+
