@@ -1,5 +1,5 @@
 import React from "react";
-
+import Menu from "./Menu";
 const Base = ({
   title = "My title",
   description = "My description",
@@ -7,6 +7,7 @@ const Base = ({
   children,
 }) => (
   <div>
+    <Menu/>
     <div className="container-fluid">
       <div className="jumbotron bd-dark text-white text-center">
         <h2 className="display-4">{title}</h2>
