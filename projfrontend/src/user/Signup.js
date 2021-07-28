@@ -72,9 +72,11 @@ const Signup = () => {
                 value={password}
               />
             </div>
+            <div className="py-3 text-center">
             <button onClick={onSubmit} className="btn btn-success btn-block">
               Submit
             </button>
+            </div>
           </form>
         </div>
       </div>
@@ -117,7 +119,7 @@ const Signup = () => {
       {successMessage()}
       {errorMessage()}
       {signUpForm()}
-      <p className="text-white text-center">{JSON.stringify(values)}</p>
+      {/* <p className="text-white text-center">{JSON.stringify(values)}</p> */}
     </Base>
   );
 };
