@@ -1,4 +1,4 @@
-import React from "react";
+import React , {Fragment} from "react";
 import { Link, withRouter } from "react-router-dom";
 import { signout , isAuthenticated } from "../auth/helper";
 const currentTab = (history, path) => {
@@ -28,7 +28,7 @@ const Menu = ({history}) => (
           className="nav-link"
           to="/user/dashboard"
         >
-          Dashboard
+         U. Dashboard
         </Link>
       </li>
       <li className="nav-item">
@@ -36,16 +36,20 @@ const Menu = ({history}) => (
           Admin Dashboard
         </Link>
       </li>
-      <li className="nav-item">
-        <Link style={currentTab(history, "/signup")}className="nav-link" to="/signup">
-          Sign up
-        </Link>
-      </li>
-      <li className="nav-item">
-        <Link style={currentTab(history, "/signin")} className="nav-link" to="/signin">
-          Sign in
-        </Link>
-      </li>
+      {!isAuthenticated() && (
+        <Fragment>
+        <li className="nav-item">
+          <Link style={currentTab(history, "/signup")}className="nav-link" to="/signup">
+            Sign up
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link style={currentTab(history, "/signin")} className="nav-link" to="/signin">
+            Sign in
+          </Link>
+        </li>
+        </Fragment>
+      )}
       {isAuthenticated() && (
         <li className="nav-item">
         <span className="nav-link text-warning"
