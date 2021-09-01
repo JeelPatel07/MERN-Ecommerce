@@ -26,6 +26,8 @@ const  Routes=()=>{
             <AdminRoute path="/admin/create/product" exact component={AddProduct}/>
             <AdminRoute path="/admin/products" exact component={ManageProduct}/>
             <AdminRoute path="/admin/product/update/:productId" exact component={UpdateProduct}/>
+            <AdminRoute path="/admin/categories" exact component={ManageCategories}/>
+
         </Switch>
         </BrowserRouter>
     )
