@@ -8,7 +8,7 @@ import ImageHelper from "./helper/Imagehelper";
 export default function Home(){
 
     const [ products,setProducts] = useState([])
-    const [ errpr , setError] = useState(false)
+    const [ error , setError] = useState(false)
     const loadAllProducts = () => {
         getProducts().then(data=>{
             if(data.error){
@@ -30,7 +30,7 @@ export default function Home(){
                 {products.map((product,index)=>{
                     return(
                         <div key={index} className="col-4 mb-4">
-                            <Card/>
+                            <Card product={product}/>
 
                         </div>
                     )

@@ -11,6 +11,7 @@ const ManageCategories = () => {
 
   const preload = () => {
     getCategories().then((data) => {
+      // console.log(data)
       if (data.error) {
         console.log(data.error);
       } else {
@@ -24,6 +25,7 @@ const ManageCategories = () => {
   }, []);
   const deleteThisCategory = (categoryId) => {
     deleteCategory(categoryId, user._id, token).then((data) => {
+      // console.log(data)
       if (data.error) {
         console.log(data.error);
       } else {
