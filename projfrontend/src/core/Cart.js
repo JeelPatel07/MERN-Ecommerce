@@ -5,6 +5,7 @@ import Card from "./Card";
 import getProducts from "./helper/coreapicalls";
 import { loadCart } from "./helper/cartHelper";
 import StripeCheckout from "./StripeCheckout";
+import Paymentb from "./Paymentb";
 
 const Cart= ()=> {
   const [products, setProducts] = useState([]);
@@ -46,6 +47,16 @@ setProducts(loadCart())
     <Base title="Cart Page" description="Ready to checkout">
       <div className="row">
         <div className="col-6">{loadAllProducts()}</div>
+        {/* <div className="col-6">
+          {products.length > 0 ? (
+            loadAllProducts()
+          ) : (
+            <h3>NO products in cart</h3>
+          )}
+        </div> */}
+        {/* <div className="col-6">
+          <Paymentb/>
+          </div> */}
         <div className="col-6">
             <StripeCheckout
             products={products}
