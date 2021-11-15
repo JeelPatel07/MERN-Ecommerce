@@ -19,4 +19,4 @@ npm install
   yarn start
   ```
 Runs the app in the development mode.
-- Open [http://localhost:3000](http://localhost:3000) in your browser to see the magic. Next.js will automatically reload the page every time you save changes.
+- Open [http://localhost:3000](http://localhost:3000) in your browser to see the magic.
